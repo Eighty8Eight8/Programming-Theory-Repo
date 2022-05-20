@@ -20,6 +20,10 @@ public class EnemyScript : MonoBehaviour
         FollowPlayer();
     }
 
+    void ChangeIntoEnemy()
+    {
+
+    }
     void FollowPlayer()
     {
         float speed = 2.5f;
@@ -27,4 +31,6 @@ public class EnemyScript : MonoBehaviour
 
         enemyRB.AddForce(moveDirection * speed, ForceMode.Impulse);
     }
+
+    
 }
