@@ -6,6 +6,7 @@ public class PlayerControl : MonoBehaviour
 {
     public Rigidbody playerRB;
     public GameObject enemy;
+    public GameObject enemyOne;
     private GameManager gameManager;
 
     bool isKeyPicked = false;
@@ -39,19 +40,35 @@ public class PlayerControl : MonoBehaviour
     	{
             isKeyPicked = true;
     		Destroy(other.gameObject);
-            StartCoroutine(PowerUpCountdownRoutine());
+            StartCoroutine(EnemyCountdownRoutine());
     		enemy.gameObject.transform.position = other.transform.position; // changes enemy position to the position of an object
     	}
+        if (other.CompareTag("PickUpOne"))
+    	{
+            isKeyPicked = true;
+    		Destroy(other.gameObject);
+            StartCoroutine(EnemyOneCountdownRoutine());
+    		enemyOne.gameObject.transform.position = other.transform.position; // changes enemy position to the position of an object
+    	}
     }
-    IEnumerator PowerUpCountdownRoutine()
+    IEnumerator EnemyCountdownRoutine()
     {
     	yield return new WaitForSeconds(1);
     	enemy.gameObject.SetActive(true); //sets enemy active in 1 second
+    }
+    IEnumerator EnemyOneCountdownRoutine()
+    {
+    	yield return new WaitForSeconds(1);
+    	enemyOne.gameObject.SetActive(true); //sets enemy active in 1 second
     }
 
     private void OnCollisionEnter(Collision collision)
     {
     	if(collision.gameObject.CompareTag("Enemy"))
+    	{
+            gameManager.GameOver();
+    	}
+        if(collision.gameObject.CompareTag("EnemyOne"))
     	{
             gameManager.GameOver();
     	}
