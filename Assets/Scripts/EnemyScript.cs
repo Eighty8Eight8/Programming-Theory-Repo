@@ -5,7 +5,12 @@ using UnityEngine;
 public class EnemyScript : MonoBehaviour
 {
     private Rigidbody enemyRB;
+<<<<<<< Updated upstream
     private GameObject player;
+=======
+    public GameObject player;
+    public float speed = 2.5f; 
+>>>>>>> Stashed changes
     // Start is called before the first frame update
     void Start()
     {
