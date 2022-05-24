@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyScript : MonoBehaviour
 {
-    public Rigidbody enemyRB;
+    private Rigidbody enemyRB;
     public GameObject player;
     public float speed = 2.5f;
     // Start is called before the first frame update
@@ -23,7 +23,7 @@ public class EnemyScript : MonoBehaviour
 
     public virtual void FollowPlayer()
     {
-        
+        float speed = 2.5f;
         Vector3 moveDirection = (player.transform.position - transform.position).normalized;
 
         enemyRB.AddForce(moveDirection * speed, ForceMode.Impulse);

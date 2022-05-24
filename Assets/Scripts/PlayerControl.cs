@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class PlayerControl : MonoBehaviour
 {
-    public Rigidbody playerRB;
-    public GameObject enemy;
-    public GameObject enemyOne;
+    private Rigidbody playerRB; //ENCAPSULATION
+    [SerializeField]
+    private GameObject enemy;
+    [SerializeField]
+    private GameObject enemyOne;
     private GameManager gameManager;
 
     bool isKeyPicked = false;
@@ -22,10 +24,10 @@ public class PlayerControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-         MoveForward();
+         MoveForward(); //ABSTRACTION
     }
 
-    public void MoveForward() //user moves the ball forward or from side to side
+    private void MoveForward() //user moves the ball forward or from side to side
     {   
         float speed = 3.0f;
         float horizontalInput =  Input.GetAxis("Horizontal");
@@ -64,7 +66,7 @@ public class PlayerControl : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-    	if(collision.gameObject.CompareTag("Enemy"))
+    	if(collision.gameObject.CompareTag("Enemy")||collision.gameObject.CompareTag("EnemyOne"))
     	{
             gameManager.GameOver();
     	}
