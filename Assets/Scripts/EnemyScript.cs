@@ -5,12 +5,8 @@ using UnityEngine;
 public class EnemyScript : MonoBehaviour
 {
     private Rigidbody enemyRB;
-<<<<<<< Updated upstream
-    private GameObject player;
-=======
     public GameObject player;
-    public float speed = 2.5f; 
->>>>>>> Stashed changes
+    public float speed = 2.5f;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +25,7 @@ public class EnemyScript : MonoBehaviour
     {
 
     }
-    void FollowPlayer()
+    public virtual void FollowPlayer()
     {
         float speed = 2.5f;
         Vector3 moveDirection = (player.transform.position - transform.position).normalized;

@@ -4,16 +4,11 @@ using UnityEngine;
 
 public class PlayerControl : MonoBehaviour
 {
-<<<<<<< Updated upstream
-    public Rigidbody playerRB;
-    public GameObject enemy;
-=======
     private Rigidbody playerRB; //ENCAPSULATION
     [SerializeField]
     private GameObject enemy;
     [SerializeField]
     private GameObject enemyOne;
->>>>>>> Stashed changes
     private GameManager gameManager;
 
     bool isKeyPicked = false;
@@ -63,13 +58,6 @@ public class PlayerControl : MonoBehaviour
     	{
             gameManager.GameOver();
     	}
-<<<<<<< Updated upstream
-=======
-        /*if(collision.gameObject.CompareTag("EnemyOne"))
-    	{
-            gameManager.GameOver();
-    	}*/
->>>>>>> Stashed changes
 
         if(collision.gameObject.CompareTag("Gates")&&isKeyPicked)
         {
